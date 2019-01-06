@@ -39,7 +39,7 @@ def get_keys(items):
 def get_row(item):
     row = {}
     for col, val in item.items():
-        key = val.keys()[0]
+        key = list(val.keys())[0]
         if key in ['S','N','BOOL','B']:
             row[col] = val[key]
 
