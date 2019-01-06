@@ -1,5 +1,7 @@
 import click
 import json
+import csv
+import sys
 
 
 @click.command()
@@ -19,11 +21,13 @@ def cli(input):
     data = json.load(input)
 
     header_keys = get_keys(data['Items'])
-    print(header_keys)
+
+    writer = csv.DictWriter(sys.stdout, fieldnames=header_keys)
+    writer.writeheader()
 
     for item in data['Items']:
         i = get_row(item)
-        print(i)
+        writer.writerow(i)
 
 def get_keys(items):
     head = {}
