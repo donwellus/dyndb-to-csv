@@ -7,7 +7,7 @@ import json
 def cli(input):
     """Dynamodb to CSV
 
-    Convert the aws dynamodb output to CSV.
+    Convert the aws dynamodb output (Scalar types, JSON) to CSV.
 
     \b
     Process from stdin:
